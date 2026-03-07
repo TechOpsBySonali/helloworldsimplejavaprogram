@@ -36,6 +36,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: build
+    environment:
+      name: 'Production'
+      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+    permissions:
+      contents: none
       
     steps:
       - name: Download artifact from build job
@@ -50,4 +55,5 @@ jobs:
           app-name: 'webappdemo23'
           slot-name: 'Production'
           package: '*.jar'
+          startup-command: 'java -jar /home/site/wwwroot/*.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_56524CFED8124EDCADC583EF361BA3CB }}
