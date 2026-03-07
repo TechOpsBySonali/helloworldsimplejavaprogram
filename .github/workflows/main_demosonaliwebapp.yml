@@ -30,8 +30,8 @@ jobs:
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
-          name: MyWbeApp
-          path: '${{ github.workspace }}'
+          name: MyWebApp
+          path: '${{ github.workspace }}target/*.war'
 
   deploy:
     runs-on: ubuntu-latest
@@ -51,4 +51,5 @@ jobs:
           slot-name: 'Production'
           package: '*.war'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_92A698C8F94948AB92445E7378155685 }}
+
 
