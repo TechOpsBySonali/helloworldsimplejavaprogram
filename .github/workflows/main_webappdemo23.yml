@@ -55,5 +55,5 @@ jobs:
           app-name: 'webappdemo23'
           slot-name: 'Production'
           package: '*.jar'
-          startup-command: 'java -jar /home/site/wwwroot/*.jar'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_56524CFED8124EDCADC583EF361BA3CB }}
+
